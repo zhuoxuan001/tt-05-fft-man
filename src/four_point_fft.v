@@ -13,17 +13,14 @@ module four_point_fft (
     output reg signed [10:0] a3_im
 ); 
 
-    reg signed [9:0] y0_re;
-    reg signed [9:0] y1_re;
-    reg signed [9:0] y2_re;
-    reg signed [9:0] y3_re;
-    
-    always @(posedge clk) begin
-    	y0_re <= x0_re + x1_re;
-    	y1_re <= x0_re - x1_re;
-    	y2_re <= x2_re + x3_re;
-    	y3_re <= x2_re - x3_re;
-    end
+    wire signed [9:0] y0_re;
+    wire signed [9:0] y1_re;
+    wire signed [9:0] y2_re;
+    wire signed [9:0] y3_re;
+    assign y0_re = x0_re + x1_re;
+    assign y1_re = x0_re - x1_re;
+    assign y2_re = x2_re + x3_re;
+    assign y3_re = x2_re - x3_re;
 
     always @(posedge clk) begin
         if (rst) begin
