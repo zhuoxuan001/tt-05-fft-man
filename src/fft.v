@@ -10,6 +10,7 @@ module fft (
     input [7:0] x6_re,
     input [7:0] x7_re,
     output reg signed [11:0] a0_re,
+    output reg signed [11:0] a0_im,
     output reg signed [11:0] a1_re,
     output reg signed [11:0] a1_im,
     output reg signed [11:0] a2_re,
@@ -17,6 +18,7 @@ module fft (
     output reg signed [11:0] a3_re,
     output reg signed [11:0] a3_im,
     output reg signed [11:0] a4_re,
+    output reg signed [11:0] a4_im,
     output reg signed [11:0] a5_re,
     output reg signed [11:0] a5_im,
     output reg signed [11:0] a6_re,
@@ -129,5 +131,7 @@ module fft (
             a7_re <= y3_re - z7_re;
             a7_im <= y3_im - z7_im;
         end
+        a0_im <= 0;
+        a4_im <= 0;
     end
 endmodule
